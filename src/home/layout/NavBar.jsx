@@ -15,7 +15,7 @@ export const NavBar = () => {
                     ?
                     <>
                         <NavLink className="text-white text-lg" to="#">FAQ</NavLink>
-                        <NavLink className="text-white text-lg" to="#">Terms</NavLink>
+                        <NavLink className="text-white text-lg" to="/terms">Terms</NavLink>
                         <NavLink className="text-white text-lg" to="/accounts">Accounts</NavLink>
                     </>
                     :
