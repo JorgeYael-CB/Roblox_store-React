@@ -6,7 +6,7 @@ export const PrivatesRoutes = ({ children }) => {
 
     if (userLogged()) {
         return <Navigate to="/" />;
-    }
+    };
 
     return children;
 };

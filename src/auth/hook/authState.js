@@ -214,6 +214,10 @@ export default function authState() {
         return JSON.parse( localStorage.getItem(nameLs) );
     };
 
+    const deleteUserStorage  = () => {
+        localStorage.removeItem(nameLs);
+    };
+
 
     return {
         userLogged,
@@ -224,6 +228,7 @@ export default function authState() {
         forgotPassword: onForgoutPassword,
         resetPassword: onResetPassword,
         getStorage,
+        deleteUserStorage,
         ...auth,
     };
 }
