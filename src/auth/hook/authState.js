@@ -24,6 +24,27 @@ export default function authState() {
         succesMessage: '',
     });
 
+    const validateUserDb = async() => {
+        loadingSethAuth();
+
+        if( !getStorage() || !getStorage().token ){
+            deleteUserStorage();
+            window.location.reload();
+        };
+
+        const token = getStorage().token;
+        const url = `${apiUrl}/auth/get-user-by-jwt/${token}`;
+
+        const res = await fetch(url);
+        const data = await res.json();
+
+        if (data.error) {
+            deleteUserStorage();
+            window.location.reload();
+            return;
+        };
+    };
+
     const loadingSethAuth = () => {
         setAuth(auth => ({
             ...auth,
@@ -218,6 +239,35 @@ export default function authState() {
         localStorage.removeItem(nameLs);
     };
 
+    const editAccount = async(nameAccount, newNameAccount) => {
+        await validateUserDb();
+
+        const body = {
+            newProductName: newNameAccount,
+            previusProductName: nameAccount,
+            token: getStorage().token,
+        };
+
+        const url = `${apiUrl}/auth/edit-account`;
+        const res = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify( body ),
+        });
+
+        const data = await res.json();
+
+        if( data.error ){
+            errorSetAuth(data.error);
+            return;
+        };
+
+        succesSetAuth('new name added');
+        window.location.reload();
+    }
+
 
     return {
         userLogged,
@@ -229,6 +279,7 @@ export default function authState() {
         resetPassword: onResetPassword,
         getStorage,
         deleteUserStorage,
+        editAccount,
         ...auth,
     };
 }

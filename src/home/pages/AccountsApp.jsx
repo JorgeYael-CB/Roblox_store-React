@@ -4,6 +4,7 @@ import { AlertApp } from "../../layout/AlertApp";
 import { SpinnerApp } from "../../layout/SpinnerApp";
 import { NavBar } from "../layout/NavBar"
 import { Navigate } from "react-router-dom";
+import { AccountApp } from "../../layout/AccountApp";
 
 
 
@@ -60,7 +61,9 @@ export const AccountsApp = () => {
                         ?
                         <AlertApp message={'Aún no tienes ninguna cuenta comprada, accede a la página principal para agregar una nueva cuenta'}/>
                         :
-                        <AlertApp message={'Se estan cargando'}/>
+                        Accounts.map( (account, index) => (
+                            <AccountApp key={index} account={account} index={index + 1}/>
+                        ))
                 }
                 <hr className="mt-28"/>
             </main>
