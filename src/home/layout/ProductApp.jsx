@@ -27,4 +27,4 @@ export const ProductApp = ({product, eventSold}) => {
             </div>
         </div>
     )
-}
+};

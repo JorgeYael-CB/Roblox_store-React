@@ -209,6 +209,12 @@ export default function authState() {
         }
     };
 
+
+    const getStorage = () => {
+        return JSON.parse( localStorage.getItem(nameLs) );
+    };
+
+
     return {
         userLogged,
         onRegisterUser,
@@ -217,6 +223,7 @@ export default function authState() {
         loginUser: onLoginUser,
         forgotPassword: onForgoutPassword,
         resetPassword: onResetPassword,
+        getStorage,
         ...auth,
     };
 }
