@@ -68,6 +68,12 @@ export default function productsState() {
         const res = await fetch(url);
         const data = await res.json();
 
+        if( data.error ){
+            localStorage.removeItem('UserDVC');
+            window.location.reload();
+            return;
+        }
+
         succesApi('Redireccionando al usuario...');
         //* Lo retornamos al pago
         window.location.href = `${data.data.urlPayment}`;

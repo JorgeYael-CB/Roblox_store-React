@@ -191,20 +191,17 @@ export default function authState() {
         loadingSethAuth();
 
         const url = `${apiUrl}/auth/get-user-by-jwt/${token}`;
-        try {
-            const res = await fetch(url);
-            const data = await res.json();
+        const res = await fetch(url);
+        const data = await res.json();
 
-            if (data.error) {
-                errorSetAuth(data.error);
-                return;
-            }
+        if (data.error) {
+            deleteUserStorage();
+            errorSetAuth(data.error);
+            return;
+        };
 
-            succesSetAuth('', null);
-            return data;
-        } catch (error) {
-            errorSetAuth(error.message);
-        }
+        succesSetAuth('', null);
+        return data;
     };
 
     const onResetPassword = async ({ newPassword, token }) => {
@@ -237,6 +234,7 @@ export default function authState() {
 
     const deleteUserStorage  = () => {
         localStorage.removeItem(nameLs);
+        window.location.reload();
     };
 
     const editAccount = async(nameAccount, newNameAccount) => {
