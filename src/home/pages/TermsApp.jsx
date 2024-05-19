@@ -1,3 +1,4 @@
+import { FooterApp } from "../layout/FooterApp";
 import { NavBar } from "../layout/NavBar"
 
 export const TermsApp = () => {
@@ -45,6 +46,8 @@ export const TermsApp = () => {
                     <strong>DevComplete Studios</strong> appreciates your trust and hopes you enjoy our products. By using our services, you agree to comply with these Terms and Conditions in their entirety.
                 </p>
             </div>
+
+            <FooterApp/>
         </>
     )
 };

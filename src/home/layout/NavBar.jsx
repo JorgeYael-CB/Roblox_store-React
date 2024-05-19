@@ -14,7 +14,7 @@ export const NavBar = () => {
                     userLogged()
                     ?
                     <>
-                        <NavLink className="text-white text-lg" to="#">FAQ</NavLink>
+                        <NavLink className="text-white text-lg" to="/faq">FAQ</NavLink>
                         <NavLink className="text-white text-lg" to="/terms">Terms</NavLink>
                         <NavLink className="text-white text-lg" to="/accounts">Accounts</NavLink>
                     </>

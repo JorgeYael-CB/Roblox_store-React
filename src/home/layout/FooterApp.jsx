@@ -24,7 +24,7 @@ export const FooterApp = () => {
             </div>
 
             <div className="flex flex-col gap-3">
-                <NavLink className="text-white text-xl" to="#">FAQ</NavLink>
+                <NavLink className="text-white text-xl" to="/faq">FAQ</NavLink>
                 <NavLink className="text-white text-xl" to="/terms">Terms</NavLink>
             </div>
         </footer>
