@@ -37,7 +37,7 @@ export const AccountApp = ({account, index}) => {
                         <button
                             onClick={ onModeEdit }
                         >
-                            <img className="w-6" src="/public/store/icon-edit.png" alt="Icon edit" />
+                            <img className="w-6" src="/store/icon-edit.png" alt="Icon edit" />
                         </button>
                     </div>
 
