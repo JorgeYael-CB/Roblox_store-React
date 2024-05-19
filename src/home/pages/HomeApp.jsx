@@ -4,6 +4,7 @@ import productsState from "../hooks/productsState";
 import { ProductApp } from "../layout/ProductApp";
 import { SpinnerApp } from "../../layout/SpinnerApp";
 import { AlertApp } from "../../layout/AlertApp";
+import { FooterApp } from "../layout/FooterApp";
 
 
 
@@ -29,7 +30,7 @@ export const HomeApp = () => {
 
             <div>
                 <div className="mt-24 text-center">
-                    <h2 className="font-bold md:text-6xl text-5xl mb-4">Script DragonBloxUltimate</h2>
+                    <h2 className="font-bold md:text-6xl text-5xl mb-4 text-blue-600">Script DragonBloxUltimate</h2>
                     <p className="max-w-xl font-semibold md:text-xl text-base mx-auto">Obten el mejor script de DBU, es lo que los Top globales usan, vuelvete un profesional en el juego y únete a uno los mejores jugadores.</p>
                 </div>
 
@@ -58,6 +59,8 @@ export const HomeApp = () => {
                     ))
                 }
             </main>
+
+            <FooterApp/>
         </>
     )
 };
